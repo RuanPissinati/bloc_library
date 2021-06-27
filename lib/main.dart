@@ -10,6 +10,17 @@ enum CounterEvent { increment, decrement}
 // um número inteiro que representa o valor atual do contador. [...] Neste caso, um
 // tipo primitivo é perfeitamente adequado como representação de estado.
 
+
+// Transição
+// A mudança de um estado para outro é chamada de transição. Uma transição
+// consiste no estado atual, no evento e no próximo estado.
+// EXP:
+// {
+// "currentState": 0,
+// "event": "CounterEvent.increment",
+// "nextState": 1
+// }
+
 void main() {
   runApp(MyApp());
 }
