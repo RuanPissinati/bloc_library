@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
 enum CounterEvent { increment, decrement}
+// Até agora, definimos os dois eventos aos quais nosso aplicativo
+// responderá: CounterEvent.increment e CounterEvent.decrement.
+
+// Agora precisamos definir como representar o estado do nosso aplicativo.
+
+// Como estamos construindo um contador, nosso estado é muito simples: é apenas
+// um número inteiro que representa o valor atual do contador. [...] Neste caso, um
+// tipo primitivo é perfeitamente adequado como representação de estado.
 
 void main() {
   runApp(MyApp());
