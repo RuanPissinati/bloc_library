@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+enum CounterEvent { increment, decrement}
+
 void main() {
   runApp(MyApp());
 }
