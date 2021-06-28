@@ -1,6 +1,27 @@
 import 'package:bloc/bloc.dart';
 
 enum CounterEvent { increment, decrement}
+
+class SimpleBlocObserver extends BlocObserver {
+  @override
+  void onEvent(Bloc bloc, Object? event) {
+    super.onEvent(bloc, event);
+    print(event);
+  }
+
+  @override
+  void onTransition(Bloc bloc, Transition transition) {
+    super.onTransition(bloc, transition);
+    print(transition);
+  }
+
+  @override
+  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
+    print('$error, $stackTrace');
+    super.onError(bloc, error, stackTrace);
+  }
+}
+
 class CounterBloc extends Bloc<CounterEvent, int> {
   CounterBloc():super(0);
 
@@ -15,20 +36,10 @@ class CounterBloc extends Bloc<CounterEvent, int> {
         break;
     }
   }
-
-  @override
-  void onTransition(Transition<CounterEvent, int> transition) {
-    super.onTransition(transition);
-    print(transition);
-  }
-
-  @override
-  void onError(Object error, StackTrace stackTrace) {
-    print('$error, $stackTrace');
-  }
 }
 
 void main() async {
+  Bloc.observer = SimpleBlocObserver();
   CounterBloc bloc = CounterBloc();
 
   for (int i = 0; i < 3; i++) {
